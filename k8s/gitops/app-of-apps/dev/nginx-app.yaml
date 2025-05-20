@@ -7,7 +7,7 @@ metadata:
   annotations:
     notifications.argoproj.io/subscribe.on-deployed.slack: monitoring-alert
     notifications.argoproj.io/subscribe.on-sync-failed.slack: monitoring-alert
-    # notifications.argoproj.io/subscribe.on-sync-succeeded.slack: alerts
+    # notifications.argoproj.io/subscribe.on-sync-succeeded.slack: monitoring-alert 
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
