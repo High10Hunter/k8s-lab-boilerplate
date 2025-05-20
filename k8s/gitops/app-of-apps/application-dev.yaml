@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git
     path: k8s/gitops/app-of-apps/dev
-    targetRevision: HEAD 
+    targetRevision: main 
     directory:
       recurse: false # Only pick up Application CRs 
   syncPolicy:
