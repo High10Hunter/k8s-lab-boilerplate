@@ -2,3 +2,9 @@
 namespace: default 
 resources:
   - ../../../../kustomize/nginx
+patches:
+  - path: deployment.yaml
+    target:
+      kind: Deployment 
+      name: nginx 
+      namespace: default 
