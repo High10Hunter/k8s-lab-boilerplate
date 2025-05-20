@@ -27,7 +27,7 @@ kubie ctx minikube
 
 ## Provision resources on k8s cluster
 ```bash
-cd terraform/environments/dev
+cd terraform
 terraform init
 terraform apply
 ```
