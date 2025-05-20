@@ -1,0 +1,11 @@
+---
+configs:
+  params:
+    server.insecure: true
+
+notifications:
+  enabled: true
+  secret:
+    create: false
+  cm:
+    create: false

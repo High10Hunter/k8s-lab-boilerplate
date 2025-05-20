@@ -1,0 +1,10 @@
+---
+namespace: argocd
+resources:
+  - ../../../../kustomize/argocd
+patches:
+  - path: notifications-secret.yaml
+    target:
+      kind: Secret 
+      name: argocd-notifications-secret 
+      namespace: argocd
