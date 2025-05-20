@@ -14,8 +14,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
-    targetRevision: HEAD
-    path: nginx
+    path: k8s/gitops/environments/dev/nginx 
+    targetRevision: main 
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
