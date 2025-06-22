@@ -1,0 +1,22 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: prometheus-adapter 
+resources:
+  - cluster-role-aggregated-metrics-reader.yaml
+  - cluster-role-binding-auth-delegator.yaml
+  - cluster-role-binding-hpa-custom-metrics.yaml
+  - cluster-role-binding-resource-reader.yaml
+  - cluster-role-metrics-server-resources.yaml
+  - cluster-role-resource-reader.yaml
+  - configmap.yaml
+  - custom-metrics-apiservice.yaml
+  - custom-metrics-cluster-role-binding-hpa.yaml
+  - custom-metrics-cluster-role.yaml
+  - deployment.yaml
+  - metrics-apiservice.yaml
+  - role-binding-auth-reader.yaml
+  - service-account.yaml
+  - service.yaml
+
