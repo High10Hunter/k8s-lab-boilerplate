@@ -25,6 +25,14 @@ minikube start --cpus <number_of_cpus> --memory <memory_usage> --kubernetes-vers
 kubie ctx minikube
 ```
 
+## Setup KinD
+```bash
+sudo kind create cluster
+
+# set the context to kind
+kubie ctx kind-kind
+```
+
 ## Provision resources on k8s cluster
 ```bash
 cd terraform

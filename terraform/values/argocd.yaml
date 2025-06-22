@@ -2,6 +2,11 @@
 configs:
   params:
     server.insecure: true
+  secret:
+    # This disables the default initial-admin-secret behavior
+    # generate the below bcrypt hashed password by running: htpasswd -nbBC 10 "" 123456Abc# | tr -d ':\n'
+    argocdServerAdminPassword: "$2y$10$1KvmbnXPrYT1wyI6Enr.luW7rjXexLY5.mkvKtlRssLkS54mTYCAy" # 123456Abc#
+    argocdServerAdminPasswordMtime: "2025-06-22T00:00:00Z"  # Change this value to trigger updates
 
 notifications:
   enabled: true
