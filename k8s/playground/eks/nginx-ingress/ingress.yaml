@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-metric-app 
+  namespace: demo 
+  annotations:
+    cert-manager.io/cluster-issuer: http-01-production
+spec:
+  ingressClassName: external-nginx  
+  rules:
+    - host: demo.high10hunter.live
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: test-metric-app 
+                port:
+                  number: 7070 
+
+  tls:
+    - hosts:
+        - demo.high10hunter.live
+      secretName: demo-high10hunter-tls 

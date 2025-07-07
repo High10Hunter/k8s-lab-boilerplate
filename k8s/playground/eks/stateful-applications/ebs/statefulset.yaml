@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet 
+metadata:
+  name: test-metric-app 
+  namespace: demo
+spec:
+  serviceName: test-metric-app 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-metric-app 
+  template:
+    metadata:
+      labels:
+        app: test-metric-app 
+    spec:
+      containers:
+      - image: high10hunter/test-metric-app:latest
+        name: test-metric-app 
+        ports:
+            - name: http
+              containerPort: 7070 
+            - name: metrics
+              containerPort: 8081
+        volumeMounts:
+            - name: data
+              mountPath: /data
+        resources:
+            requests:
+              memory: 256Mi
+              cpu: 100m
+            limits:
+              memory: 256Mi
+              cpu: 500m 
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        storageClassName: gp2
+        accessModes: [ReadWriteOnce]
+        resources:
+          requests:
+            storage: 5Gi

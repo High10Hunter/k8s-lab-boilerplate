@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-metric-app 
+  namespace: demo
+  labels:
+    app: test-metric-app 
+spec:
+  type: ClusterIP 
+  selector:
+    app: test-metric-app 
+  ports:
+    - name: http
+      port: 7070
+      targetPort: 7070

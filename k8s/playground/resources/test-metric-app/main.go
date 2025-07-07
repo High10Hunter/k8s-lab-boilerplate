@@ -12,7 +12,11 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-var port = 7070
+var (
+	port    = 7070
+	name    = "test-metric-app"
+	version = "v0.1.4"
+)
 
 // handler with metrics
 type handler struct {
@@ -41,6 +45,8 @@ func main() {
 	h := handler{metrics: m}
 
 	app.Get("/api/cpu", h.cpu)
+	app.Get("/about", h.about)
+	app.Get("/health", h.health)
 
 	app.Listen(fmt.Sprintf(":%d", port))
 }
@@ -69,4 +75,12 @@ func fib(n int) int {
 		return n
 	}
 	return fib(n-1) + fib(n-2)
+}
+
+func (h *handler) about(c *fiber.Ctx) error {
+	return c.JSON(&fiber.Map{"service": name, "version:": version})
+}
+
+func (h *handler) health(c *fiber.Ctx) error {
+	return c.JSON(&fiber.Map{"status": "ok"})
 }
