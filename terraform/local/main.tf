@@ -1,3 +1,3 @@
-module "resources" {
+module "helm_charts" {
   source = "./helm-charts"
 }
