@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git
-    path: k8s/gitops/app-of-apps/dev
+    path: k8s/gitops/simple/app-of-apps/dev
     targetRevision: main 
     directory:
       recurse: false # Only pick up Application CRs 

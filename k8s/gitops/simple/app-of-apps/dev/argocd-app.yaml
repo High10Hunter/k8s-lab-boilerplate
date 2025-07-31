@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
-    path: k8s/gitops/environments/dev/argocd
+    path: k8s/gitops/simple/environments/dev/argocd
     targetRevision: main
   syncPolicy:
     automated:
