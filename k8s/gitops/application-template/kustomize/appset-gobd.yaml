@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: gobg
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - environment: dev
+      - environment: stage
+      - environment: prod
+  template:      
+    metadata:
+      name: 'gobg-{{.environment}}'
+    spec:
+      project: default
+      sources:
+        - repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
+          targetRevision: main
+          path: 'k8s/gitops/application-template/kustomize/env/overlays/{{.environment}}'
+      destination:
+        name: in-cluster
+        namespace: 'gobg-{{.environment}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+        retry:
+          limit: 5
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
