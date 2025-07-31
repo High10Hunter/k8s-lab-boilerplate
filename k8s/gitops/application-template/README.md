@@ -45,5 +45,6 @@ Here is the overview of the infrastructure that will be created:
 To clean up the infrastructure, run the following command:
 
 ```bash
+cd bootstraps
 ./scripts/destroy-infra.sh
 ```

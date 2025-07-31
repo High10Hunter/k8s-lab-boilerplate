@@ -41,5 +41,5 @@ terraform apply
 ```
 
 ## Launch infrastructure with GitOps 
-[Simple GitOps instruction](./k8s/gitops/simple/README.md)
-[ArgoCD application template](./k8s/gitops/application-template/README.md)
+- [Simple GitOps instruction](./k8s/gitops/simple/README.md)
+- [ArgoCD application template](./k8s/gitops/application-template/README.md)
