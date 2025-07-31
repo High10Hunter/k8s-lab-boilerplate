@@ -1,4 +1,4 @@
-# GitOps instruction   
+# Simple GitOps instruction   
 
 ## Bootstrapping
 Update custom ConfigMap with the IP of image registry in the k8s cluster and git repo secret so that ArgoCD can access the git repo

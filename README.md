@@ -2,7 +2,7 @@
 A collection of tools and scripts to help you get started with Kubernetes in the local environment
 
 ## Requirements
-- Minikube (or K3s, Kind, etc.)
+- Minikube (or K3d, Kind, etc.)
 - Kubie
 - Terraform
 - Kustomize
@@ -41,4 +41,5 @@ terraform apply
 ```
 
 ## Launch infrastructure with GitOps 
-[ArgoCD instruction](./k8s/gitops/README.md)
+[Simple GitOps instruction](./k8s/gitops/simple/README.md)
+[ArgoCD application template](./k8s/gitops/application-template/README.md)
