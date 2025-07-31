@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mykuardapp
+  namespace: argocd
+spec:
+  project: endor
+  source:
+    repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
+    targetRevision: main
+    path: k8s/gitops/application-template/impersonation/manifests/
+  destination:
+    namespace: kuard
+    server: https://kubernetes.default.svc
+  syncPolicy: {}

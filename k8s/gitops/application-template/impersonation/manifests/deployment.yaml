@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kuard
+  name: kuard
+  namespace: kuard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuard
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: kuard
+    spec:
+      containers:
+      - image: gcr.io/kuar-demo/kuard-arm64:blue
+        name: kuard-arm64
+        resources: {}
