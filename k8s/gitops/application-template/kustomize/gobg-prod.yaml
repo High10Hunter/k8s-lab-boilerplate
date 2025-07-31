@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gobg-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
+    targetRevision: main
+    path: k8s/gitops/application-template/kustomize/env/overlays/prod/
+  destination:
+    namespace: gobg-prod
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
