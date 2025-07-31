@@ -1,0 +1,11 @@
+## Replicas to 3 for Prod
+replicaCount: 3
+
+## Publishing on NodePort for Prod
+service:
+  type: NodePort
+  port: 30280
+
+## Prod Specific Config
+appconfig: |
+  {"spec":{"stage":"prod"}}

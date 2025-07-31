@@ -1,0 +1,2 @@
+appconfig: |
+  {"spec":{"stage":"dev"}}
