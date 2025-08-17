@@ -3,6 +3,11 @@ output "cluster_name" {
   value       = aws_eks_cluster.eks.name
 }
 
+output "cluster_endpoint" {
+  description = "The endpoint URL of the EKS cluster"
+  value       = aws_eks_cluster.eks.endpoint
+}
+
 output "cluster_oidc_issuer_url" {
   description = "The OIDC issuer URL of the EKS cluster"
   value       = aws_eks_cluster.eks.identity[0].oidc[0].issuer
@@ -11,4 +16,9 @@ output "cluster_oidc_issuer_url" {
 output "cluster_security_group_id" {
   description = "The security group ID for the EKS cluster"
   value       = aws_eks_cluster.eks.vpc_config[0].cluster_security_group_id
+}
+
+output "node_group_role_name" {
+  description = "The IAM role ARN for the EKS node group"
+  value       = aws_iam_role.nodes.name
 }
