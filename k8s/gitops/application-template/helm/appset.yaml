@@ -12,7 +12,7 @@ spec:
       - environment: dev
       - environment: stage
       - environment: prod
-  template:      
+  template:
     metadata:
       name: 'simple-go-{{.environment}}'
     spec:
@@ -24,7 +24,7 @@ spec:
           helm:
             valueFiles:
             - $values/k8s/gitops/application-template/helm/values/common/values.yaml
-            - $values/k8s/gitops/application-template/helm/values/env/{{.environment}}/values.yaml  
+            - $values/helm/values/env/{{.environment}}/values.yaml  
         - repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
           targetRevision: main
           ref: values
