@@ -1,0 +1,11 @@
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: ServiceIntentions
+metadata:
+  name: paymentservice-allow-checkoutservice-eks
+  namespace: consul
+spec:
+  destination:
+    name: paymentservice 
+  sources:
+   - name: checkoutservice 
+     action: allow

@@ -10,9 +10,9 @@ resource "aws_eks_node_group" "general" {
   instance_types = ["t3.small"]
 
   scaling_config {
-    desired_size = 1
-    max_size     = 10
-    min_size     = 0
+    desired_size = var.desired_node_group_size
+    max_size     = var.max_node_group_size
+    min_size     = var.min_node_group_size
   }
 
   update_config {

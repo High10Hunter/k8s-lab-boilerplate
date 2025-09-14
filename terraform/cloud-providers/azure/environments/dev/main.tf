@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "../../modules/vpc"
+  source = "../../modules/vnet"
 
   vnet_name           = "main"
   vnet_address_space  = ["10.0.0.0/16"]

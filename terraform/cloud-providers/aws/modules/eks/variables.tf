@@ -26,3 +26,21 @@ variable "subnet_ids" {
   description = "List of subnet IDs for the EKS cluster"
   type        = list(string)
 }
+
+variable "desired_node_group_size" {
+  type        = number
+  description = "The desired number of worker nodes in the node group."
+  default     = 3
+}
+
+variable "max_node_group_size" {
+  type        = number
+  description = "The maximum number of worker nodes in the node group."
+  default     = 5
+}
+
+variable "min_node_group_size" {
+  type        = number
+  description = "The minimum number of worker nodes in the node group."
+  default     = 1
+}
