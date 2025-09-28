@@ -40,7 +40,7 @@ echo 'fs.inotify.max_queued_events=65536' | sudo tee -a /etc/sysctl.d/60-inotify
 sudo sysctl --system
 ```
 
-## Initialize Cluster API
+## Initialize Cluster API for local management cluster
 ```bash 
 ./scripts/init-kind-cluster-api.sh
 ```

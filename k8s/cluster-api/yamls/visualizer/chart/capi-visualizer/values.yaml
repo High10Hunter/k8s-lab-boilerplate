@@ -1,0 +1,14 @@
+replicas: 1
+
+image:
+  repository: high10hunter
+  name: cluster-api-visualizer
+  imagePullPolicy: Always
+  tag: v1
+
+label:
+  key: app
+  value: capi-visualizer
+
+service:
+  type: ClusterIP

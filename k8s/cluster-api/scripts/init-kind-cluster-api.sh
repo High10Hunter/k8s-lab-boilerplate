@@ -5,7 +5,4 @@ echo "Kind cluster created ☸️"
 sudo kubectl config use-context kind-kind
 
 clusterctl init --infrastructure docker --config ./yamls/bootstrap/clusterctl.yaml
-echo "Install the CAPI Management Cluster components completed ✈️"
-
-kubectl apply -f ./yamls/clusterclass/clusterclass-quickstart.yaml
-echo "ClusterClass applied ✅"
+echo "Install the CAPI Management Cluster components completed 🐳"
