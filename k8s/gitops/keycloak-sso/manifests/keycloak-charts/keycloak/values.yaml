@@ -1,0 +1,34 @@
+instances: 1
+
+internalService:
+  port: 443
+
+ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  className: external-nginx
+  host: keycloak.high10hunter.live
+  tls:
+    secret:
+      name: keycloak-tls
+
+realm:
+  create: true
+
+postgresql:
+  name: postgresql-db
+  databaseName: keycloak
+  image:
+    repository: postgres
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  secret:
+    name: postgresql-db-secret
+    username: postgres
+    password: superSecretPassword1
+  service:
+    type: ClusterIP
+    port: 5432
+  storage:
+    storageClassName: gp2
+    size: 5Gi

@@ -1,6 +1,6 @@
 locals {
   environment = "dev"
-  region      = "us-east-1"
+  region      = "us-west-2"
   eks_name    = "demo"
-  eks_version = "1.31"
+  eks_version = "1.32"
 }
