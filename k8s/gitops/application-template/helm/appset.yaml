@@ -7,14 +7,14 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - list:
-      elements:
-      - environment: dev
-      - environment: stage
-      - environment: prod
+    - list:
+        elements:
+          - environment: dev
+          - environment: stage
+          - environment: prod
   template:
     metadata:
-      name: 'simple-go-{{.environment}}'
+      name: "simple-go-{{.environment}}"
     spec:
       project: default
       sources:
@@ -23,14 +23,15 @@ spec:
           targetRevision: 0.2.1
           helm:
             valueFiles:
-            - $values/k8s/gitops/application-template/helm/values/common/values.yaml
-            - $values/helm/values/env/{{.environment}}/values.yaml  
-        - repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git 
+              - $values/k8s/gitops/application-template/helm/values/common/values.yaml
+              - $values/k8s/gitops/application-template/helm/values/env/{{.environment}}/values.yaml
+        - repoURL: https://github.com/High10Hunter/k8s-lab-boilerplate.git
           targetRevision: main
           ref: values
       destination:
-        name: in-cluster
-        namespace: 'sg-{{.environment}}'
+        # name: in-cluster
+        name: remote
+        namespace: "sg-{{.environment}}"
       syncPolicy:
         automated:
           prune: true
